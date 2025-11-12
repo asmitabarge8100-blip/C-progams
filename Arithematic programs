@@ -1,0 +1,249 @@
+#include <stdio.h>
+int main() {
+    int temp1 = 25, temp2 = 30;
+    int sum = temp1 + temp2;
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int sensor1 = 80, sensor2 = 50;
+    int diff = sensor1 - sensor2;
+    printf("Difference = %d\n", diff);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int s1 = 10, s2 = 5;
+    int product = s1 * s2;
+    printf("Product = %d\n", product);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int s1 = 100, s2 = 20;
+    int div = s1 / s2;
+    printf("Division = %d\n", div);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int s1 = 40, s2 = 60;
+    float avg = (s1 + s2) / 2.0;
+    printf("Average = %.2f\n", avg);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int sensors[5] = {10, 20, 30, 40, 50};
+    int sum = 0;
+    for(int i=0; i<5; i++) {
+        sum += sensors[i];
+    }
+    printf("Sum of 5 readings = %d\n", sum);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int sensors[5] = {5, 10, 15, 20, 25};
+    int sum = 0;
+    for(int i=0; i<5; i++) {
+        sum += sensors[i];
+    }
+    float avg = sum / 5.0;
+    printf("Average = %.2f\n", avg);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int sensors[5] = {12, 45, 23, 67, 34};
+    int max = sensors[0];
+    for(int i=1; i<5; i++) {
+        if(sensors[i] > max)
+            max = sensors[i];
+    }
+    printf("Maximum = %d\n", max);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int sensors[5] = {12, 45, 23, 67, 54};
+    int max = sensors[0], min = sensors[0];
+    for(int i=1; i<5; i++) {
+        if(sensors[i] > max) max = sensors[i];
+        if(sensors[i] < min) min = sensors[i];
+    }
+    printf("Range = %d\n", max - min);
+    return 0;
+}
+
+MEDIUM DIFFICLUTIES
+
+Sum of  Sensor Readings
+
+#include <stdio.h>
+int main() {
+    int n, sum=0;
+    printf("Enter number of sensors: ");
+    scanf("%d", &n);
+    int s[n];
+    printf("Enter sensor values:\n");
+    for(int i=0; i<n; i++) {
+        scanf("%d", &s[i]);
+        sum += s[i];
+    }
+    printf("Sum = %d\n", sum);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n, sum=0;
+    printf("Enter number of sensors: ");
+    scanf("%d", &n);
+    int s[n];
+    for(int i=0; i<n; i++) {
+        scanf("%d", &s[i]);
+        sum += s[i];
+    }
+    printf("Average = %.2f\n", (float)sum/n);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter number of sensors: ");
+    scanf("%d", &n);
+    int s[n];
+    for(int i=0; i<n; i++) scanf("%d", &s[i]);
+    int max = s[0];
+    for(int i=1; i<n; i++) if(s[i] > max) max = s[i];
+    printf("Max = %d\n", max);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int s[n];
+    for(int i=0; i<n; i++) scanf("%d", &s[i]);
+    int min = s[0];
+    for(int i=1; i<n; i++) if(s[i] < min) min = s[i];
+    printf("Min = %d\n", min);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int s[n];
+    for(int i=0; i<n; i++) scanf("%d", &s[i]);
+    int max = s[0], min = s[0];
+    for(int i=1; i<n; i++) {
+        if(s[i] > max) max = s[i];
+        if(s[i] < min) min = s[i];
+    }
+    printf("Range = %d\n", max-min);
+    return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int s[n], sum=0;
+    for(int i=0; i<n; i++) {
+        scanf("%d", &s[i]);
+        sum += s[i];
+    }
+    float mean = (float)sum/n, variance=0;
+    for(int i=0; i<n; i++) {
+        variance += pow(s[i]-mean,2);
+    }
+    variance /= n;
+    printf("Std Dev = %.2f\n", sqrt(variance));
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int s[n], max, min;
+    for(int i=0; i<n; i++) scanf("%d", &s[i]);
+    max=min=s[0];
+    for(int i=1; i<n; i++) {
+        if(s[i]>max) max=s[i];
+        if(s[i]<min) min=s[i];
+    }
+    for(int i=0; i<n; i++)
+        printf("Normalized[%d] = %.2f\n", i, (float)(s[i]-min)/(max-min));
+    return 0;
+}
+
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d", &n);
+    int s[n];
+    for(int i=0; i<n; i++) scanf("%d", &s[i]);
+    for(int i=2; i<n; i++) {
+        float avg = (s[i]+s[i-1]+s[i-2])/3.0;
+        printf("Avg[%d] = %.2f\n", i, avg);
+    }
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    int s[n], max;
+    for(int i=0;i<n;i++) scanf("%d",&s[i]);
+    max=s[0]; for(int i=1;i<n;i++) if(s[i]>max) max=s[i];
+    for(int i=0;i<n;i++) 
+        printf("Sensor[%d] = %.2f%% of Max\n", i, (s[i]*100.0)/max);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    int s[n];
+    for(int i=0;i<n;i++) scanf("%d",&s[i]);
+    for(int i=0;i<n;i++) printf("%d ", s[i]*2);
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    int s[n];
+    for(int i=0;i<n;i++) scanf("%d",&s[i]);
+    for(int i=n-1;i>=0;i--) printf("%d ", s[i]);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
